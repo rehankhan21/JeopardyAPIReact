@@ -13,7 +13,7 @@ class Game extends Component {
             question: "",
             answer: "",
             category: "",
-            isActive: ""
+            isActive: "hide"
         }
 
         this.getQuestion = this.getQuestion.bind(this)
@@ -26,14 +26,18 @@ class Game extends Component {
         this.setState({
             question: question,
             answer: answer,
-            category: category
+            category: category,
+            isActive: "hide"
         })
 
         console.log(this.state.question)
     }
 
-    showAnswer(event) {
+    showAnswer() {
 
+        this.setState({
+            isActive: "show"
+        })
     }
 
     // getAnswer(answer) {
@@ -50,12 +54,12 @@ class Game extends Component {
                 <h1>Welcome to Jeopardy!</h1>
                 <Button getQuestion={this.getQuestion} getAnswer={this.getAnswer} />
                 <ShowQuestion question={this.state.question} />
-                <button onClick={this.showAnswer}></button>
+                <button onClick={this.showAnswer}>Show Answer</button>
                 <div>
                     <b>Question:</b> {this.state.question}
                 </div>
-                <div className="hide">
-                    <b>Answer:</b> {this.state.answer ? "":""}
+                <div className={this.state.isActive}>
+                    <b>Answer:</b> {this.state.answer}
                 </div>
                 <h2>
                     Category: {this.state.category}
