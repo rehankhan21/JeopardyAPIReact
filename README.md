@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Developed a Complaint application that utilizes NYC Open Data API to display complaints across the five boroughs. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## `npm install`
